@@ -25,8 +25,10 @@ Detalles completos en el script `deseq2_differential_expression.R`.
 
 ## Resultados
 
-- Los resultados por condición (log2 fold change, p-valor ajustado) concuerdan con los reportados en Expression Atlas para los genes de interés (Fig. XX, Tabla YY).
-- No se encontró evidencia de enriquecimiento de genes alterados en la vecindad de *Slc38a10* en ninguna condición, ni con el umbral principal (log2FC > 1) ni con otros umbrales (Tabla ZZ, Fig. WW). 
+- El gen knockout (Slc38a10) muestra una caída de expresión consistente en las 4 condiciones (log2FC de -6.3 a -7.5), confirmando que el knockout funcionó correctamente (ver boxplot de Slc38a10 generado en RStudio).
+- Los resultados del Análisis B concuerdan con los de Expression Atlas. Por ejemplo, Arsi en la condición "none at 0 hour" da un log2FC de -9.14 en R y -9.1 en Expression Atlas, p ajustado: 4.43e-17 vs 3.55e-14 (ver deseq_por_condicion.csv).
+- Los genes que pasan el filtro estricto de Expression Atlas (|log2FC| ≥ 7 y p ajustado ≤ 0.06) coinciden con los reportados en la interfaz web (ver tabla_tipo_gxa.csv), incluyendo la distribución por condición: Col8a1, Madcam1, Anxa1 y A730049H05Rik aparecen en "B27 starved at 8 hour", mientras que Arsi, Glycam1 y Acta2 aparecen en "none at 0 hour".
+- No se encontró evidencia de enriquecimiento de genes alterados en la vecindad de Slc38a10 (53-54 genes en la ventana de ±1 Mb) en ninguna de las 4 condiciones, p ajustado ≥ 0.5, prueba exacta de Fisher con |log2FC| ≥ 1 (ver vecinos_gen_knockout.csv y figures/cromosoma_gen_knockout.png). El análisis de sensibilidad confirmó que esta conclusión se mantiene con los 4 umbrales probados (ver vecinos_sensibilidad.csv y figures/sensibilidad_vecinos.png).
 
 ## Discusión
 
